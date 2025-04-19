@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Boutique</title>
+  <link rel="stylesheet" href="/frontend/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>E-Boutique</h1>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Accueil</a></li>
+          <li><a href="#products">Produits</a></li>
+          <li><a href="#cart">Panier</a></li>
+          <li><a href="#about">À propos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section Produits -->
+    <section id="products" class="container section">
+      <h2>Nos Produits</h2>
+      <div id="product-list" class="products-grid">
+        <!-- Les produits seront injectés ici par JavaScript -->
+        <p>Chargement des produits...</p>
+      </div>
+    </section>
+
+    <!-- Section Panier -->
+    <section id="cart" class="container section">
+      <h2>Votre Panier</h2>
+      <div id="cart-items">
+        <!-- Le contenu du panier sera injecté ici par JavaScript -->
+        <p>Votre panier est vide</p>
+      </div>
+    </section>
+
+    <!-- Section Admin (pour ajouter des produits) -->
+    <section id="admin" class="container section">
+      <h2>Administration</h2>
+      <div class="form-container">
+        <h3>Ajouter un Produit</h3>
+        <form id="product-form">
+          <div class="form-group">
+            <label for="product-name">Nom du produit</label>
+            <input type="text" id="product-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="product-description">Description</label>
+            <textarea id="product-description" name="description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="product-price">Prix (€)</label>
+            <input type="number" id="product-price" name="price" step="0.01" min="0" required>
+          </div>
+          <button type="submit" class="btn">Ajouter le produit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 E-Boutique. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Chargement du script JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

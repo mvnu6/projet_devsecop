@@ -1,4 +1,4 @@
- services:
+services:
   product-service:
     build:
       context: ./product-service
@@ -20,6 +20,18 @@
       - product-service
     environment:
       - PRODUCT_SERVICE_URL=http://product-service:8080
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - microservices-network
+    depends_on:
+      - product-service
+      - order-service
 
 networks:
   microservices-network:
