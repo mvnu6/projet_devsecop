@@ -1,0 +1,26 @@
+ services:
+  product-service:
+    build:
+      context: ./product-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices-network
+
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices-network
+    depends_on:
+      - product-service
+    environment:
+      - PRODUCT_SERVICE_URL=http://product-service:8080
+
+networks:
+  microservices-network:
+    driver: bridge
